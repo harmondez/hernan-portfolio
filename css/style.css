@@ -811,6 +811,41 @@ img {
     }
 }
 
+
+/* Estilo para la imagen del proyecto */
+.project-img-src {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Expandir el clic a toda la tarjeta */
+.full-card-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Cubre la tarjeta cuando el overlay está activo */
+}
+
+/* El botón de GitHub debe quedar por encima para ser independiente */
+.project-links a:not(.full-card-link) {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
 .profile-image-frame {
     position: relative;
     width: 100%;
