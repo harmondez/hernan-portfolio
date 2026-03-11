@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     loadPreferences();
     initTheme();
+    initLanguage();
     initFormHandlers();
     initMobileMenu();
     
@@ -100,6 +101,14 @@ function initTheme() {
         themeToggle.addEventListener('click', toggleTheme);
     }
     document.body.setAttribute('data-theme', AppState.currentTheme);
+}
+
+// --- Gestión de Idioma ---
+function initLanguage() {
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', toggleLanguage);
+    }
 }
 
 function updateThemeUI() {
