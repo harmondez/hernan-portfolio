@@ -1,0 +1,42 @@
+///
+
+
+🏗️ 1. Arquitectura y Stack
+"He optado por una arquitectura Vanilla JS (ES6+) para maximizar el rendimiento y tener control total sobre el DOM. No he querido usar frameworks como React o Vue para evitar el overhead innecesario, priorizando una carga instantánea y una ejecución limpia."
+
+
+///
+💎 2. El Core Visual: Raymarching & WebGL
+"Lo más complejo de la página es el fondo interactivo. En lugar de usar un video o partículas simples, he modificado un Shader de Fragmentos (GLSL) 
+creado por Techartist @VoXelo  (codepen), seguidamente ejecutado sobre un contexto de WebGL.
+
+Técnica: Se utiliza  Raymarching para renderizar la gema central.
+
+Geometría: La escena se define mediante SDFs (Signed Distance Fields), lo que permite realizar operaciones booleanas suaves (smooth blending) entre las geometrías.
+
+Física de luz: He implementado Dispersión Cromática (separación de canales RGB en las refracciones) y efectos de Fresnel para darle ese look de cristal denso/cyberpunk."
+
+
+///
+📟 3. Motor de Animación y Glitch Engine
+"Para la interactividad, he desarrollado un Glitch Engine custom en JavaScript:
+
+Texto Aleatorio: Una función recursiva que utiliza un set de caracteres ASCII y binarios, controlada por un temporizador que descifra el texto original en función del idioma detectado en el DOM.
+
+Sincronización: Uso Anime.js para coordinar las líneas de tiempo de entrada (Staggered Animations) y el sistema de carga (Preloader).
+
+Optimización de Scroll: Las animaciones no se ejecutan todas al principio; utilizo la API de Intersection Observer para disparar los eventos de 'descifrado' solo cuando el elemento entra en el viewport, optimizando así el uso de CPU."
+
+
+///
+🌐 4. UX y Localización
+"El sitio es totalmente bilingüe y reactivo. He implementado un sistema de Localización Dinámica que utiliza atributos data-text-es/en.
+
+
+///
+🚀 5. Performance y Deployment
+"La optimización es clave:
+
+Viewport Scaling: El canvas de WebGL escala su resolución internamente (internally downsampled) en dispositivos móviles para mantener los 60 FPS
+
+Git Workflow: He seguido un flujo de trabajo profesional con Conventional Commits y despliegue continuo (CD) a través de GitHub Pages, gestionando versiones estables y ramas de experimento para las pruebas estéticas."

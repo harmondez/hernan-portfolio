@@ -1,0 +1,872 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hernan Dev | AI & Data Portfolio</title>
+    
+    <script>
+        // Suppress Tailwind CDN warning
+        if (typeof console !== 'undefined' && console.warn) {
+            const originalWarn = console.warn;
+            console.warn = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
+                    return; 
+                }
+                originalWarn.apply(console, args);
+            };
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en">
+    
+    <div class="loader-screen" id="loader">
+        <div class="loader-content">
+            <div class="loader-code-text">
+                <div class="code-line" data-line="1">const portfolio = {</div>
+                <div class="code-line" data-line="2">  loading: true,</div>
+                <div class="code-line" data-line="3">  status: 'initializing...'</div>
+                <div class="code-line" data-line="4">};</div>
+            </div>
+            <div class="loader-spinner-wrapper">
+                <div class="loader-spinner"></div>
+            </div>
+            <div class="loader-progress-wrapper">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-percentage" id="loaderPercent">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">harmondez</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text" data-text-en="Home" data-text-es="Inicio">Home</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text" data-text-en="About" data-text-es="Sobre mí">About</span>
+                </a>
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <i class="fas fa-code"></i>
+                    <span class="nav-text" data-text-en="Skills" data-text-es="Habilidades">Skills</span>
+                </a>
+                
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <i class="fas fa-rocket"></i>
+                    <span class="nav-text" data-text-en="Projects" data-text-es="Proyectos">Projects</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text" data-text-en="Contact" data-text-es="Contacto">Contact</span>
+                </a>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="lang-toggle" id="langToggle" title="Toggle Language">
+                    <i class="fas fa-language"></i>
+                    <span class="lang-text">ES</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+
+            <div class="system-disclaimer glass-panel" id="disclaimer">
+            <div class="disclaimer-icon">
+                <i class="fas fa-triangle-exclamation"></i>
+            </div>
+            <div class="disclaimer-content">
+                <p class="disclaimer-text">
+                    <span class="status-blink">●</span> 
+                    <span data-text-en="SYSTEM_STATUS: UNDER_CONSTRUCTION. New modules deploying soon. Inactive nodes detected." 
+                        data-text-es="ESTADO: EN_CONSTRUCCIÓN. Desplegando nuevos apartados. Puede que algunos botones aún no funcionen">
+                        ESTADO: EN_CONSTRUCCIÓN. 
+                    </span>
+                </p>
+            </div>
+            <button class="disclaimer-close" onclick="this.parentElement.style.display='none'">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="code-grid-bg"></div>
+                <div class="floating-particles" id="particles"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-greeting">
+                        <span class="greeting-text" 
+                            data-text-en="const status = 'Building the future';" 
+                            data-text-es="const estado = 'Construyendo el futuro';">
+                            const status = 'Building the future';
+                        </span>
+                        <span class="greeting-cursor">|</span>
+                    </div>
+                    
+                    <h1 class="hero-name" id="heroName">
+                        <span class="name-prefix">const</span>
+                        <span class="name-operator">=</span>
+                        <span class="name-value">Hernan_Bareiro</span>
+                        <span class="name-suffix">;</span>
+                    </h1>
+                    
+                    <div class="hero-title">
+                        <span class="title-prefix">//</span>
+                        <span class="title-text" 
+                            data-text-en="Data Analyst | AI & Automation Builder" 
+                            data-text-es="Junior Data Analyst | AI Systems & Automation">
+                            Data Analyst | AI & Automation Builder
+                        </span>
+                    </div>
+                    
+                    <p class="hero-description" 
+                    data-text-en="Turning complex data into high-performance digital ecosystems." 
+                    data-text-es="Transformando datos complejos en ecosistemas digitales de alto rendimiento.">
+                    Turning complex data into high-performance digital ecosystems.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-text-en="Get In Touch" data-text-es="Contacto">Get In Touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <span data-text-en="View Projects" data-text-es="Ver Proyectos">View Projects</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-social">
+                        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="CodePen"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-container">
+                        <div class="profile-image-glow"></div>
+                        <div class="profile-image-frame">
+                            <div class="profile-image" id="profileImage">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-brain"></i> </div>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <i class="fab fa-react"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">Frontend</span>
+                                <span class="badge-libs">HTML, CSS, Javascript, React</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fab fa-python"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">AI & Data</span>
+                                <span class="badge-libs">Python, TensorFlow, SQL, Power BI</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class="fab fa-node-js"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">Backend</span>
+                                <span class="badge-libs">Node.js, ETL, REST API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+                <span class="scroll-text" data-text-en="Scroll Down" data-text-es="Desliza">Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="About Me" data-text-es="Sobre Mí">About Me</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text-wrapper">
+                        <div class="about-intro">
+                            <p class="about-text" 
+                            data-text-en="I am a Data & AI Builder focused on turning data into intelligent, automated systems. 
+                            My work sits at the intersection of analytics, machine learning, and real-world deployment — 
+                            building solutions that generate benefits for a company" 
+                            data-text-es="Soy un desarrollador de datos e inteligencia artificial centrado en convertir los datos en sistemas inteligentes y automatizados. 
+                            Mi trabajo se sitúa en la intersección entre el análisis, el aprendizaje automático y la implementación en el mundo real, 
+                            creando soluciones que generan beneficio a una empresa">
+                                I am a Full Stack Developer specialized in building intelligent digital ecosystems. My focus lies in bridging the gap between robust backend architectures and intuitive, data-driven user interfaces using modern AI integrations.
+                            </p>
+                        </div>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="5">0</div>
+                                <div class="stat-label" data-text-en="Projects Completed" data-text-es="Proyectos Listos">Projects Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="2">0</div>
+                                <div class="stat-label" data-text-en="Years of Code" data-text-es="Años de Código">Years of Code</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="2">0</div>
+                                <div class="stat-label" data-text-en="AI Models Deployed" data-text-es="Modelos de IA">AI Models Deployed</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image-wrapper">
+                        <div class="about-image-container">
+                            <div class="code-block glass-panel">
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span>
+                                    <span class="code-variable">hernan</span>
+                                    <span class="code-operator">=</span>
+                                    <span class="code-brace">{</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">role</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-string">'Data_Analyst'</span>
+                                    <span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">stack</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-bracket">[</span>
+                                    <span class="code-string">'Python'</span><span class="code-comma">,</span>
+                                    <span class="code-string">'SQL'</span><span class="code-comma">,</span>
+                                    <span class="code-string">'Excel'</span><span class="code-comma">,</span>
+                                    <span class="code-string">'Pandas'</span><span class="code-comma">,</span>
+                                    <span class="code-string">'Tableau'</span><span class="code-comma">,</span>
+                                    <span class="code-string">'Power BI'</span>
+                                    <span class="code-bracket">]</span>
+                                    <span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">mission</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-string">'Automate workflows'</span>
+                                    <span class="code-operator"></span>
+                                    <div></div>
+                                    <span class="code-property">motto</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-string">'Learn fast, analyze smarter, automate everything'</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-brace">}</span>
+                                    <span class="code-semicolon">;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- Skills Section -->
+         <!-- Skills Section -->
+          <!-- Skills Section -->
+        <!-- Skills Section -->
+
+
+
+        <section>
+            <div>
+                
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Experience Section -->
+        <section id="skills" class="section skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Skills" data-text-es="Habilidades">Skills</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-category glass-panel">
+                        <h3 class="category-title" data-text-en="Frontend & UX" data-text-es="Frontend y UX">Frontend & UX</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="React" data-percent="95">
+                                <div class="skill-header">
+                                    <span class="skill-name">HTML5</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Three.js" data-percent="80">
+                                <div class="skill-header">
+                                    <span class="skill-name">CSS</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Tailwind" data-percent="90">
+                                <div class="skill-header">
+                                    <span class="skill-name">Javascript</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-panel">
+                        <h3 class="category-title" data-text-en="Backend & AI" data-text-es="Backend e IA">Backend & AI</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Node.js" data-percent="92">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Python" data-percent="85">
+                                <div class="skill-header">
+                                    <span class="skill-name">SQL/ Bigquery</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Database" data-percent="88">
+                                <div class="skill-header">
+                                    <span class="skill-name">Wordpress/PHP</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-panel">
+                        <h3 class="category-title" data-text-en="Other skills" data-text-es="Otros conocimientos">Otros conocimientos</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Git" data-percent="95">
+                                <div class="skill-header">
+                                    <span class="skill-name">Git & GitHub</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Docker" data-percent="75">
+                                <div class="skill-header">
+                                    <span class="skill-name">NotebookLM</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="AWS" data-percent="70">
+                                <div class="skill-header">
+                                    <span class="skill-name">Bussiness Intelligence (BI)</span>
+                                    <span class="skill-percent"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Projects" data-text-es="Proyectos">Projects</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="Neural E-Commerce" data-text-es="E-Commerce Inteligente">Neural E-Commerce</h3>
+                            <p class="project-description" 
+                            data-text-en="An advanced platform featuring real-time inventory management and user behavior prediction models." 
+                            data-text-es="Plataforma avanzada con gestión de inventario en tiempo real y modelos de predicción de comportamiento del usuario.">
+                                An advanced platform featuring real-time inventory management and user behavior prediction models.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="Smart Task Manager" data-text-es="Gestor de Tareas Pro">Smart Task Manager</h3>
+                            <p class="project-description" 
+                            data-text-en="A productivity app that uses NLP to categorize and prioritize tasks automatically." 
+                            data-text-es="App de productividad que utiliza NLP (Procesamiento de Lenguaje Natural) para categorizar tareas automáticamente.">
+                                A productivity app that uses NLP to categorize and prioritize tasks automatically.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">OpenAI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="Data Vision Dashboard" data-text-es="Panel de Análisis Visual">Data Vision Dashboard</h3>
+                            <p class="project-description" 
+                            data-text-en="Real-time data visualization dashboard connected to live APIs with automated reporting." 
+                            data-text-es="Dashboard de visualización de datos en tiempo real conectado a APIs en vivo con reportes automáticos.">
+                                Real-time data visualization dashboard connected to live APIs with automated reporting.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Three.js</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Contact" data-text-es="Contacto">Contact</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item glass-panel">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Email" data-text-es="Correo">Email</h4>
+                                <a href="mailto:hernan96b@gmail.com" class="contact-value">hernan96b@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item glass-panel">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Network" data-text-es="Red Profesional">Network</h4>
+                                <a href="www.linkedin.com/in/hernan-bareiro" target="_blank" class="contact-value">LinkedIn Profile</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item glass-panel">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Location" data-text-es="Ubicación">Location</h4>
+                                <span class="contact-value" data-text-en="Barcelona, Spain" data-text-es="Barcelona, España">Barcelona, Spain</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-es="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-es="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-es="Asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-es="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span data-text-en="Send Message" data-text-es="Enviar Mensaje">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+        <canvas id="canvas-shader"></canvas>
+        <div class="shader-overlay"></div>
+
+        <div class="content-cyber">
+            <h1>PRÓXIMAMENTE</h1>
+            <p class="tagline">Transformando datos complejos en soluciones útiles para las personas.</p>
+            
+            <div class="buttons">
+                <button class="glass-button">
+                    <span class="shimmer"></span>
+                    <span>ASISTENTE INTELIGENTE</span>
+                </button>
+                <button class="glass-button">
+                    <span class="shimmer"></span>
+                    <span>ANÁLISIS DE DATOS</span>
+                </button>
+            </div>
+        </div>
+
+        <section class="construction-zone">
+            <div class="glitch-wrapper">
+                <p class="status-code">Procesando nuevas ideas...</p>
+                
+                <h2 class="loading-text" id="ai-status">TRABAJANDO EN <span class="cyan">ALGO GRANDE</span><span class="cursor">_</span></h2>
+                
+                <p class="hype-sub">
+                    Actualmente estoy desarrollando un <b>asistente personal basado en GPT</b> para facilitarte el día a día 
+                    y proyectos para <b>encontrar respuestas en los datos</b>.
+                    <br>
+                    <span class="pink">Muy pronto podrás ver los resultados aquí.</span>
+                </p>
+            </div>
+        </section>
+
+
+
+
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-text-wrapper">
+                        <p class="footer-text">
+                            <span class="footer-copyright">© 2026 Hernán Bareiro</span>
+                            <span class="footer-divider">•</span>
+                            <span class="footer-built" data-text-en="Built with passion❤️‍🔥, caffeine☕ & curiosity🤓" data-text-es="Creado con pasión e IA">Built with passion & AI</span>
+                        </p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="footer-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="footer-social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+        attribute vec2 position;
+        void main() { gl_Position = vec4(position, 0.0, 1.0); }
+    </script>
+
+    <script id="fragmentShader" type="x-shader/x-fragment">
+        precision highp float;
+    
+    uniform float uTime;
+    uniform vec2 uResolution;
+    uniform vec2 uMouse;
+    
+    #define PI 3.14159265359
+    #define TAU 6.28318530718
+    #define MAX_STEPS 80
+    #define MAX_DIST 50.0
+    #define SURF_DIST 0.001
+    
+    // Funciones de utilidad matemática para el Raymarching
+    float hash(float n) {
+        return fract(sin(n) * 43758.5453123);
+    }
+    
+    mat2 rot(float a) {
+        float s = sin(a);
+        float c = cos(a);
+        return mat2(c, -s, s, c);
+    }
+    
+    // Primitivas Geométricas
+    float sdSphere(vec3 p, float r) {
+        return length(p) - r;
+    }
+
+    float sdOctahedron(vec3 p, float s) {
+        p = abs(p);
+        float m = p.x + p.y + p.z - s;
+        vec3 q;
+        if(3.0 * p.x < m) q = p.xyz;
+        else if(3.0 * p.y < m) q = p.yzx;
+        else if(3.0 * p.z < m) q = p.zxy;
+        else return m * 0.57735027;
+        
+        float k = clamp(0.5 * (q.z - q.y + s), 0.0, s);
+        return length(vec3(q.x, q.y - s + k, q.z - k));
+    }
+
+    float sdTriPrism(vec3 p, vec2 h) {
+        vec3 q = abs(p);
+        return max(q.z - h.y, max(q.x * 0.866025 + p.y * 0.5, -p.y) - h.x * 0.5);
+    }
+    
+    // Operaciones de mezcla suave (SDF Blending)
+    float smin(float a, float b, float k) {
+        float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
+        return mix(b, a, h) - k * h * (1.0 - h);
+    }
+
+    float smax(float a, float b, float k) {
+        return -smin(-a, -b, k);
+    }
+    
+    // Mapa de la escena
+    float map(vec3 p) {
+        vec2 m = (uMouse - 0.5) * 2.5;
+        p.xy += m * 0.4;
+        
+        p.xz *= rot(uTime * 0.12);
+        p.xy *= rot(uTime * 0.08);
+        
+        float d = 100.0;
+        vec3 p1 = p;
+        p1.yz *= rot(uTime * 0.15);
+        
+        float core_distort = sin(p1.x * 3.0 + uTime) * sin(p1.y * 3.0 + uTime) * sin(p1.z * 3.0 + uTime) * 0.1;
+        float core = sdOctahedron(p1, 1.6) + core_distort;
+        
+        vec3 p2 = p1;
+        p2.xy *= rot(PI * 0.25 + uTime * 0.2);
+        float prism = sdTriPrism(p2, vec2(1.4, 2.0));
+        core = smax(core, -prism, 0.2);
+        
+        d = core;
+        
+        float k_blend = 0.2 + 0.15 * (0.5 + 0.5 * sin(uTime * 1.5));
+        
+        for(int i = 0; i < 4; i++) {
+            float fi = float(i);
+            float angle = fi * TAU / 4.0 + uTime * 0.3;
+            float radius = 3.0 + 0.3 * sin(uTime * 0.4 + fi);
+            vec3 pos = vec3(cos(angle) * radius, sin(angle * 0.7) * 1.0, sin(angle) * radius);
+            vec3 po = p - pos;
+            po.xy *= rot(uTime * 0.5 + fi);
+            float sat_distort = sin(po.x * 5.0 + fi) * sin(po.y * 5.0 + fi) * sin(po.z * 5.0 + fi) * 0.05;
+            float satellite = sdOctahedron(po, 0.4) + sat_distort;
+            d = smin(d, satellite, k_blend);
+        }
+        return d;
+    }
+    
+    vec3 getNormal(vec3 p) {
+        vec2 e = vec2(0.001, 0.0);
+        return normalize(vec3(
+            map(p + e.xyy) - map(p - e.xyy),
+            map(p + e.yxy) - map(p - e.yxy),
+            map(p + e.yyx) - map(p - e.yyx)
+        ));
+    }
+    
+    float raymarch(vec3 ro, vec3 rd) {
+        float t = 0.0;
+        for(int i = 0; i < MAX_STEPS; i++) {
+            vec3 p = ro + rd * t;
+            float d = map(p);
+            if(abs(d) < SURF_DIST || t > MAX_DIST) break;
+            t += d * 0.7;
+        }
+        return t;
+    }
+    
+    vec3 getBackground(vec3 rd) {
+        float stars = 0.0;
+        vec3 p = rd * 100.0;
+        float h = hash(dot(p, vec3(12.9898, 78.233, 54.53)));
+        if(h > 0.98) stars = pow(h - 0.98, 10.0) * 20.0;
+        vec3 nebula = vec3(0.0);
+        nebula += vec3(0.3, 0.15, 0.5) * pow(max(0.0, sin(rd.x * 2.0 + uTime * 0.1)), 3.0) * 0.2;
+        nebula += vec3(0.15, 0.3, 0.6) * pow(max(0.0, sin(rd.y * 2.5 + uTime * 0.05)), 3.0) * 0.2;
+        return stars + nebula;
+    }
+    
+    void main() {
+        vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution.xy) / min(uResolution.x, uResolution.y);
+        vec2 m = (uMouse - 0.5) * 0.5;
+        vec3 ro = vec3(m.x * 2.0, m.y * 2.0, 5.5);
+        vec3 rd = normalize(vec3(uv, -1.0));
+        
+        rd.xy *= rot(m.x * 0.2);
+        rd.yz *= rot(m.y * 0.2);
+        
+        float t = raymarch(ro, rd);
+        vec3 color = vec3(0.0);
+        
+        if(t < MAX_DIST) {
+            vec3 p = ro + rd * t;
+            vec3 normal = getNormal(p);
+            vec3 viewDir = normalize(ro - p);
+            
+            float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 3.0);
+            float ior = 1.5;
+            vec3 refractDir = refract(rd, normal, 1.0 / ior);
+            
+            if(length(refractDir) > 0.0) {
+                float t2 = raymarch(p - normal * 0.01, refractDir);
+                if(t2 < MAX_DIST) {
+                    vec3 p2 = p - normal * 0.01 + refractDir * t2;
+                    vec3 normal2 = getNormal(p2);
+                    vec3 r = refract(refractDir, -normal2, ior - 0.2);
+                    vec3 g = refract(refractDir, -normal2, ior);
+                    vec3 b = refract(refractDir, -normal2, ior + 0.2);
+                    color = vec3(getBackground(r).x, getBackground(g).y, getBackground(b).z);
+                    color = pow(color, vec3(0.7)) * 5.0;
+                } else {
+                    color = getBackground(refractDir) * 2.0;
+                }
+            }
+            
+            vec3 lightDir = normalize(vec3(1.0, 1.0, -1.0));
+            float spec = pow(max(dot(normal, normalize(lightDir + viewDir)), 0.0), 150.0);
+            color += spec * vec3(1.0) * 3.5;
+            
+            vec3 fresnelColor = vec3(0.5 + 0.5 * sin(fresnel * TAU + uTime), 0.5 + 0.5 * sin(fresnel * TAU + uTime + TAU/3.0), 0.5 + 0.5 * sin(fresnel * TAU + uTime + TAU*2.0/3.0));
+            color += fresnel * fresnelColor * 1.2;
+            color += pow(1.0 - abs(dot(viewDir, normal)), 4.0) * vec3(0.6, 0.7, 1.0) * 0.7;
+        } else {
+            color = getBackground(rd);
+        }
+        
+        color *= 1.0 - length(uv) * 0.4; // Vignette
+        gl_FragColor = vec4(pow(color * 1.12, vec3(0.88)), 1.0);
+    }
+        
+
+
+    </script>
+
+    <script src="js/shader-engine.js"></script>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Motion One loaded dynamically -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
