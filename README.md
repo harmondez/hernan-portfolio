@@ -50,4 +50,4 @@ Si quieres **clonar y explorar mi laboratorio de datos**:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/TU_USUARIO/TU_REPO.git
+   git clone https://harmondez.github.io/hernan-portfolio/
